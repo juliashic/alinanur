@@ -94,7 +94,7 @@ body {
 
 /* ─── TYPE ─── */
 h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; line-height: 1.15; font-weight: 400; }
-h1 { font-size: clamp(2rem, 4.5vw, 4rem); letter-spacing: -.01em; }
+h1 { font-size: clamp(2.4rem, 6.25vw, 5.75rem); letter-spacing: -.01em; }
 h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
 h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
 p  { line-height: 1.75; color: var(--g6); font-size: .95rem; }
@@ -199,7 +199,7 @@ nav a:hover { color: var(--gold); }
    HERO
 ═══════════════════════════════════════ */
 .hero {
-  position: relative; min-height: 100vh;
+  position: relative; min-height: 100vh; max-height: 85vh;
   display: flex; align-items: flex-start;
   overflow: hidden;
 }
@@ -224,7 +224,7 @@ nav a:hover { color: var(--gold); }
 .hero-content {
   position: relative; z-index: 2;
   padding: 0 5%; padding-top: 180px;
-  max-width: 780px;
+  max-width: 1100px;
 }
 .hero-tag {
   display: flex; align-items: center; gap: 14px;
@@ -746,15 +746,20 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
   opacity: 0; pointer-events: none; transition: opacity .3s; white-space: nowrap;
 }
 .float-row:hover .float-lbl { opacity: 1; }
-.fb-btn {
-  width: 48px; height: 48px; border: none;
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none; font-size: 1.3rem;
-  transition: transform .3s, box-shadow .3s;
+.float-cta {
+  display: inline-block;
+  background: var(--gold); color: var(--g0);
+  font-family: 'Inter', sans-serif; font-size: .75rem;
+  font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; padding: 14px 24px;
+  box-shadow: 0 8px 32px rgba(196,163,90,.35);
+  transition: background .3s, transform .3s, box-shadow .3s;
 }
-.fb-btn:hover { transform: scale(1.1); }
-.f-tg  { background: #0088CC; color: #fff; }
-.f-wa  { background: #25D366; color: #fff; }
+.float-cta:hover {
+  background: var(--gold-l);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(196,163,90,.5);
+}
 
 /* ═══════════════════════════════════════
    LIGHTBOX
@@ -977,7 +982,7 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
       <div class="hero-tag-dot"></div>
       <span class="hero-tag-text">Фотограф · Уфа</span>
     </div>
-    <h1>Секунда,<br>которую вы<br><em>будете помнить всегда.</em></h1>
+    <h1><span style="display:block">Секунда,</span><span style="display:block">которую вы</span><em>будете помнить всегда.</em></h1>
     <p class="hero-sub">Свадьбы · Портреты · Love Story · Никах<br>Живые кадры без постановки — только настоящие эмоции</p>
     <div class="hero-actions">
       <a href="#portfolio" class="btn btn-outline">Смотреть работы</a>
@@ -1522,12 +1527,7 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
 <!-- ═══ FLOAT ═══ -->
 <div class="float-btns">
   <div class="float-row">
-    <span class="float-lbl">Telegram</span>
-    <a href="https://t.me/alinanurphoto" class="fb-btn f-tg">✈</a>
-  </div>
-  <div class="float-row">
-    <span class="float-lbl">WhatsApp</span>
-    <a href="https://wa.me/79175587565" class="fb-btn f-wa">💬</a>
+    <a href="#contact" class="float-cta">Записаться</a>
   </div>
 </div>
 
