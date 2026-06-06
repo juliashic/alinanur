@@ -97,7 +97,7 @@ h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; line-height: 1.15; font-
 h1 { font-size: clamp(2.4rem, 6.25vw, 5.75rem); letter-spacing: -.01em; }
 h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
 h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
-p  { line-height: 1.75; color: var(--g6); font-size: .95rem; }
+p  { line-height: 1.75; color: var(--g6); font-size: .95rem; text-wrap: pretty; }
 
 /* ─── GOLD LINE ─── */
 .gold-rule { width: 48px; height: 1px; background: var(--gold); display: block; }
@@ -368,6 +368,7 @@ nav a:hover { color: var(--gold); }
   position: relative; overflow: hidden;
   transition: background var(--t);
   cursor: default;
+  display: flex; flex-direction: column;
 }
 .service-card::after {
   content: '';
@@ -391,6 +392,7 @@ nav a:hover { color: var(--gold); }
 .service-price {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.4rem; color: var(--gold);
+  margin-top: auto; padding-top: 20px;
 }
 
 /* ═══════════════════════════════════════
@@ -486,6 +488,12 @@ nav a:hover { color: var(--gold); }
 }
 .ba-lbl-b { left: 16px; background: rgba(14,14,14,.7); color: var(--g6); }
 .ba-lbl-a { right: 16px; background: var(--gold); color: var(--g0); }
+
+.ba-hint {
+  text-align: center; padding: 10px;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--g5); border-bottom: 1px solid var(--gold-line);
+}
 
 .ba-text .tag { margin-bottom: 20px; }
 .ba-text h2 { color: var(--white); margin-bottom: 20px; }
@@ -1039,8 +1047,8 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
     <div class="about-text reveal-r">
       <div class="tag" style="margin-bottom:20px">Привет, я Алина</div>
       <h2 style="color:var(--white);margin-bottom:24px">Фотография —<br>это<em style="color:var(--gold)"> эмоция</em>,<br>застывшая во времени</h2>
-      <p>Мне 27 лет, и я провожу съёмки в Уфе и по всей Башкирии. Я не режиссирую сцены — я нахожу красоту в том, что уже есть. Во взгляде, в смехе, в том как жених смотрит на невесту за секунду до поцелуя.</p>
-      <p style="margin-top:14px">5 лет я изучаю свет и людей. Каждая съёмка — это разговор, не работа. Приходите такими, какие вы есть.</p>
+      <p>Мне 27 лет, я провожу съёмки в Уфе и по всей Башкирии. Я не режиссирую сцены — я нахожу красоту в том, что уже есть. Во взгляде, в смехе, в последней секунде до&nbsp;поцелуя.</p>
+      <p style="margin-top:14px">5 лет я изучаю свет и людей. Каждая съёмка — это разговор, не работа. Приходите такими, какие есть — я найду ваш&nbsp;кадр.</p>
       <div class="about-perks" style="margin-top:28px">
         <div class="perk">🏆 Топ-1 MyWed Уфа</div>
         <div class="perk">✈️ Выезжаю за город</div>
@@ -1078,7 +1086,7 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
     <div class="service-card reveal">
       <div class="service-num">03</div>
       <h3>Love Story</h3>
-      <p>Прогулка, парк, уютное кафе — любое место станет идеальным фоном для истории вашей любви.</p>
+      <p>Прогулка, парк, уютное кафе — любое место станет идеальным фоном для истории вашей&nbsp;любви.</p>
       <div class="service-price">от 9 000 ₽</div>
     </div>
     <div class="service-card reveal">
@@ -1180,6 +1188,7 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
       <a href="#contact" class="btn btn-outline" style="margin-top:36px">Обсудить съёмку</a>
     </div>
     <div class="ba-slider-box reveal-r" id="baBox">
+      <div class="ba-hint">↔ подвигай ползунок</div>
       <div class="ba-inner">
         <div class="ba-img-after"></div>
         <div class="ba-img-before" id="baBefore"></div>
@@ -1199,7 +1208,7 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
     <div class="reveal-l">
       <div class="tag" style="margin-bottom:20px">Подбор съёмки</div>
       <h2 style="color:var(--white);margin-bottom:20px">Не знаете,<br>что выбрать?</h2>
-      <p>Ответьте на 3 вопроса — и я подберу идеальный вариант специально для вас. Это займёт меньше минуты.</p>
+      <p>Ответьте на 3 вопроса — и я подберу идеальный вариант специально для вас. Это займёт меньше&nbsp;минуты.</p>
       <div class="gold-rule" style="margin-top:40px"></div>
     </div>
     <div class="quiz-box reveal-r">
@@ -1520,6 +1529,7 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
   </div>
   <div class="footer-bottom">
     <span>© 2026 Алина Нур. Все права защищены.</span>
+    <a href="#" style="color:var(--g5);text-decoration:none;transition:color .3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--g5)'">Политика конфиденциальности</a>
     <span>Уфа, Республика Башкортостан</span>
   </div>
 </footer>
