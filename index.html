@@ -849,6 +849,16 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
     gap:36px; z-index:99;
   }
   nav.mob-open a { font-size:1.2rem; color:var(--g7); }
+  .mob-close {
+    display:none; position:fixed; top:24px; right:20px;
+    z-index:100; width:40px; height:40px;
+    background:none; border:1px solid var(--g4);
+    color:var(--g6); font-size:1.2rem; cursor:pointer;
+    align-items:center; justify-content:center;
+    transition:border-color .3s, color .3s;
+  }
+  .mob-close:hover { border-color:var(--gold); color:var(--gold); }
+  nav.mob-open ~ .mob-close, .mob-close.visible { display:flex; }
 
   /* hero */
   .hero { min-height: 75vh; }
@@ -979,6 +989,7 @@ footer { background: var(--g0); border-top: 1px solid var(--gold-line); padding:
     <span></span><span></span><span></span>
   </div>
 </header>
+<button class="mob-close" id="mobClose" onclick="toggleMenu()">✕</button>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
@@ -1554,12 +1565,13 @@ window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY
 
 /* ── MOBILE MENU ── */
 function toggleMenu(){
-  const n=document.getElementById('nav'), b=document.getElementById('burger');
-  n.classList.toggle('mob-open'); b.classList.toggle('open');
+  const n=document.getElementById('nav'), b=document.getElementById('burger'), c=document.getElementById('mobClose');
+  n.classList.toggle('mob-open'); b.classList.toggle('open'); c.classList.toggle('visible');
 }
 document.getElementById('nav').querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   document.getElementById('nav').classList.remove('mob-open');
   document.getElementById('burger').classList.remove('open');
+  document.getElementById('mobClose').classList.remove('visible');
 }));
 
 /* ── REVEAL ── */
